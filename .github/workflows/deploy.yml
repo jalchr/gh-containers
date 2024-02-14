@@ -11,18 +11,20 @@ jobs:
   test:
     environment: testing
     runs-on: ubuntu-latest
-    container:
-      #image: mcr.microsoft.com/playwright:v1.40.0-jammy
-      image: node:16
+    # container:
+    #   #image: mcr.microsoft.com/playwright:v1.40.0-jammy
+    #   image: node:16
     env:
       MONGODB_CONNECTION_PROTOCOL: mongodb
-      MONGODB_CLUSTER_ADDRESS: mongodb_service
+      MONGODB_CLUSTER_ADDRESS: 127.0.0.1:27017 #mongodb_service
       MONGODB_USERNAME: root
       MONGODB_PASSWORD: example
       PORT: 8080
     services:
       mongodb_service:
         image: mongo
+        ports:
+          - 27017:27017
         env:
           MONGO_INITDB_ROOT_USERNAME: root
           MONGO_INITDB_ROOT_PASSWORD: example
