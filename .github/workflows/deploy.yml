@@ -12,8 +12,8 @@ jobs:
     environment: testing
     runs-on: ubuntu-latest
     container:
-      #image: mcr.microsoft.com/playwright:v1.40.0-jammy
-      image: node:16
+      image: mcr.microsoft.com/playwright:v1.40.0-jammy
+      #image: node:16
     env:
       MONGODB_CONNECTION_PROTOCOL: mongodb+srv
       MONGODB_CLUSTER_ADDRESS: cluster0.w52wwgy.mongodb.net
